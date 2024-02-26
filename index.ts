@@ -9,6 +9,7 @@ const app = express()
 const writableStream = createWriteStream('server.log', { flags: 'a' })
 
 // Use morgan middleware to log requests
+app.use(morgan(':method | Endpoint - :url | :date[web] | :response-time ms'))
 app.use(morgan('combined', { stream: writableStream }))
 
 // Route for root
